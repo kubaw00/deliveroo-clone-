@@ -1,4 +1,4 @@
-import { View, Text, Image, TextInput } from 'react-native';
+import { View, Text, Image, TextInput, ScrollView } from 'react-native';
 import React, { useLayoutEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { ChevronDownIcon, SearchIcon } from 'react-native-heroicons/solid';
@@ -9,6 +9,7 @@ import {
 } from 'react-native-heroicons/outline';
 
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Categories from '../components/Categories';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -20,7 +21,7 @@ const HomeScreen = () => {
   }, []);
 
   return (
-    <SafeAreaView className='bg-white pt-5'>
+    <SafeAreaView className='bg-white pt-2'>
       <View className='flex-row px-4 my-4 items-center space-x-2'>
         <Image
           source={{ uri: 'https://links.papareact.com/wru' }}
@@ -45,6 +46,15 @@ const HomeScreen = () => {
           />
         </View>
         <AdjustmentsVerticalIcon size={30} color='#00CCBB' />
+      </View>
+
+      <View
+        className='bg-gray-100'
+        contentContainerStyle={{
+          paddingBottom: 100,
+        }}
+      >
+        <Categories />
       </View>
     </SafeAreaView>
   );
